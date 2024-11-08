@@ -3,30 +3,31 @@
 // Darkest Brown Color: Color(red:0.347, green:0.239, blue:0.173)
 
 import SwiftUI
+
 struct ContentView: View {
     @State private var isActive = false
     @AppStorage("quizComplete") private var quizComplete = false
-    @State private var selectedTab = 1  // Default to routineTab (index 1)
+    @State private var selectedTab = 0
     
     var body: some View {
         Group {
             if isActive {
                 if !quizComplete {
                     QuizView(quizComplete: $quizComplete)
-                        .transition(.opacity)
+                        .transition(.slide)
                 } else {
                     TabView(selection: $selectedTab) {
-                        exploreTab()
-                            .tabItem {
-                                Image(systemName: "magnifyingglass")
-                                Text("Explore")
-                            }
-                            .tag(0)
-                        
                         routineTab()
                             .tabItem {
                                 Image(systemName: "checklist")
                                 Text("Routine")
+                            }
+                            .tag(0)
+                        
+                        exploreTab()
+                            .tabItem {
+                                Image(systemName: "magnifyingglass")
+                                Text("Explore")
                             }
                             .tag(1)
                         
@@ -57,3 +58,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+

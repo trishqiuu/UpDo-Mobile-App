@@ -1,0 +1,11 @@
+# Xcode
+DerivedData/
+.build/
+*.xcworkspace
+*.xcodeproj/project.xcworkspace/
+*.xccheckout
+*.xcodeproj/xcuserdata/
+*.moved-aside
+*.swp
+*.swo
+
